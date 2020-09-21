@@ -1,10 +1,11 @@
-package com.example.msgshareapp
+package com.example.msgshareapp.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.example.msgshareapp.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
             val message: String = etUserMessage.text.toString()
 //            explicit intent
-            val intent = Intent(this,SecondActivity::class.java)
+            val intent = Intent(this, SecondActivity::class.java)
             intent.putExtra("user_message",message)
             startActivity(intent)
         }
@@ -36,7 +37,10 @@ class MainActivity : AppCompatActivity() {
             intent.type = "text/plain"
 
             startActivity(Intent.createChooser(intent, "Please select app: "))
-
+        }
+        btnRecyclerViewDemo.setOnClickListener{
+            val intent = Intent(this, HobbiesActivity::class.java)
+            startActivity(intent)
         }
     }
 }
